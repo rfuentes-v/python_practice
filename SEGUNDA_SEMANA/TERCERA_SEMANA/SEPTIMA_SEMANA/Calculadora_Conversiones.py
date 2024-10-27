@@ -20,51 +20,39 @@ def convertir_celsius_a_fahrenheit(celsius):
 
 while True:
     menu()
-    opcion = input("Elige una opción (1-5): ")
+
+    try:
+        opcion = input("Elige una opción (1-5): ")
     
-    if opcion == '1':
-        try:
+        if opcion == '1':
             metros = float(input("Introduce el valor en metros: "))
             resultado = convertir_metros_a_kilometros(metros)
             print(f"{metros} metros son {resultado} kilómetros.")
-        except ValueError:
-            print("Error: Por favor, introduce un número válido.")
-        except ZeroDivisionError:
-            print("Error: División por cero no permitida.")
     
-    elif opcion == '2':
-        try:
+        elif opcion == '2':
             kilogramos = float(input("Introduce el valor en kilogramos: "))
             resultado = convertir_kilogramos_a_libras(kilogramos)
             print(f"{kilogramos} kilogramos son {resultado} libras.")
-        except ValueError:
-            print("Error: Por favor, introduce un número válido.")
-        except ZeroDivisionError:
-            print("Error: División por cero no permitida.")
     
-    elif opcion == '3':
-        try:
+        elif opcion == '3':
+
             litros = float(input("Introduce el valor en litros: "))
             resultado = convertir_litros_a_mililitros(litros)
             print(f"{litros} litros son {resultado} mililitros.")
-        except ValueError:
-            print("Error: Por favor, introduce un número válido.")
-        except ZeroDivisionError:
-            print("Error: División por cero no permitida.")
     
-    elif opcion == '4':
-        try:
+        elif opcion == '4':
             celsius = float(input("Introduce el valor en Celsius: "))
             resultado = convertir_celsius_a_fahrenheit(celsius)
             print(f"{celsius} Celsius son {resultado} Fahrenheit.")
-        except ValueError:
+    
+        elif opcion == '5':
+            print("Saliendo del programa. ¡Hasta luego!")
+        break
+
+    except ValueError:
             print("Error: Por favor, introduce un número válido.")
-        except ZeroDivisionError:
+    except ZeroDivisionError:
             print("Error: División por cero no permitida.")
     
-    elif opcion == '5':
-        print("Saliendo del programa. ¡Hasta luego!")
-        break
-    
-    else:
+else:
         print("Error: Opción no válida. Por favor, elige una opción entre 1 y 5.")
