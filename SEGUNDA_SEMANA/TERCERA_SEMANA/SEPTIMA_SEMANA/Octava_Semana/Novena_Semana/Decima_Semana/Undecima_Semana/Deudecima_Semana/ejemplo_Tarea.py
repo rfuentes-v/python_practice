@@ -8,13 +8,13 @@ def mostrar_menu():
 
 def agregar_tarea():
     tarea = input("ingrese la tarea")
-    with open("Archivos/Tareas.txt","a") as archivo:
+    with open("Tareas.txt","a") as archivo:
         archivo.write(tarea + "\n")
         print("Tarea agregada")
 
 def mostrar_tareas():
     try:
-        with open("Archivos/Tareas.txt","r") as archivo:
+        with open("Tareas.txt","r") as archivo:
             tareas = archivo.readlines()
 
         if tareas:
@@ -28,7 +28,7 @@ def mostrar_tareas():
 def buscar_tareas():
     nombre_tarea = input("Ingrese el nombre de la tarea a buscar")
     try:
-        with open("Archivos/Tareas.txt","r") as archivo:
+        with open("Tareas.txt","r") as archivo:
             tareas = archivo.readlines()
         
         encontrada = False
@@ -44,12 +44,12 @@ def buscar_tareas():
         print("El archivo de tareas no existe")
 
 def eliminar_tareas():
-    with open("Archivos/Tareas.txt","w") as archivo:
+    with open("Tareas.txt","w") as archivo:
         pass
     print("Todas las tareas han sido borradas")
 
 while True:
-    mostrar_menu():
+    mostrar_menu()
 
     opcion = input("Seleccione una opcion")
 

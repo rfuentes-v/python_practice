@@ -1,22 +1,24 @@
 from domain.Libro import Libro
+from data.GestorArchivos import GestorArchivos
 
 class GestorBiblioteca:
     def __init__(self):
         self.libros = []
+        self.gestor_archivos = GestorArchivos()
 
     def agregrar_libro(self, titulo, autor, anio_publicacion):
-        libro = Libro(titulo, autor, anio_publicacion)
-        self.libros.append(libro)
-        print("Libro agregado: {libro}")
-
+        self.gestor_archivos(titulo, autor, anio_publicacion)
 
     def listar_libros(self):
-        if not self.libros:
+        lineas = self.gestor_archivos.listar_libros()
+        if not lineas:
             print("No hay libros en la biblioteca")
-        else:
-            print("\nLista de libros en la biblioteca") 
-            for libro in self.libros:
-                print(libro)
+            return
+        print("\nLista de libros en la biblioteca") 
+        for linea in lineas:
+            print(linea)
+            titulo, autor, anio = linea.strip().split(",")
+            print(f"{titulo}, de {autor} ({anio})")
 
     def buscar_libro(self, titulo=""):
         for libro in self.libros:
@@ -25,6 +27,7 @@ class GestorBiblioteca:
                 return
             else:
                 print("El libro no fue encontrado")
+                
 
                 
 

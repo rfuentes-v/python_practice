@@ -12,14 +12,14 @@ def registrar_venta():
     cantidad = int(input("Ingrese la cantidad: "))
     precio = float(input("Ingrese el lprecio unitario: "))
 
-    with open("Archivos/Ventas.txt","a") as archivo:
+    with open("Ventas.txt","a") as archivo:
         archivo.write(f"{producto}, {cantidad}, {precio}\n")
 
     print("Venta registrada")
 
 def mostrar_ventas():
     try:
-        with open("Archivos/Ventas.txt","r") as Archivo:
+        with open("Ventas.txt","r") as Archivo:
             ventas = Archivo.readlines()
 
         if ventas:
@@ -34,7 +34,7 @@ def mostrar_ventas():
 
 def calcular_total_ventas():
         try:
-            with open("Archivos/Ventas.txt","r") as Archivo:
+            with open("Ventas.txt","r") as Archivo:
                 ventas = Archivo.readlines()
 
             total = 0
